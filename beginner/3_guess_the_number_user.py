@@ -8,11 +8,11 @@ def computerGuess(x):
     
     feedback = ''
     count = 0
-    while feedback != 'c':
+    while (feedback != 'c') and (low != high):
         guess = random.randint(low, high)
         count += 1
         print(guess)
-        feedback = input("user, if the guess is correct is high or low or correct (h/l/c) : ").strip()
+        feedback = input("user, if the guess is correct is high or low or correct (h/l/c) : ").strip().lower()
         if (feedback == 'l'):
             low = guess + 1
         elif (feedback == 'h'):
