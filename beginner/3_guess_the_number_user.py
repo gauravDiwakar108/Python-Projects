@@ -19,7 +19,7 @@ def computerGuess(x):
             high = guess - 1
     
     print()
-    print("correct guess")
+    print(f"correct guess : {high}")
     
     print(f"Guess times count : {count}")
     
