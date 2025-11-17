@@ -14,9 +14,9 @@ def computerGuess(x):
         print(guess)
         feedback = input("user, if the guess is correct is high or low or correct (h/l/c) : ").strip()
         if (feedback == 'l'):
-            low = guess
+            low = guess + 1
         elif (feedback == 'h'):
-            high = guess
+            high = guess - 1
     
     print()
     print("correct guess")
