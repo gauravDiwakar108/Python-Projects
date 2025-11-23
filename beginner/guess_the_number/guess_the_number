@@ -1,0 +1,39 @@
+# Guess the number (Computer)
+
+import random
+
+def getUserGuess(x, y):
+    return int(input(f"Guess a number b/w {x} and {y} : ").strip())
+
+def getMinValue():
+    return int(input("Enter min value : ").strip())
+
+def getMaxValue():
+    return int(input("Enter max value : ").strip())
+
+def randomNum(x, y):
+    
+    rand_num = random.randint(x, y)
+    return rand_num
+
+
+def guess(x, y):
+    # while guess != random_num
+    
+    if (x < y):
+        return "Too low. Guess again!"
+    elif (x > y):
+        return "Too High. Guess again!"
+    return True
+
+def main():
+    min_val = getMinValue()
+    max_val = getMaxValue()
+    
+    random_num = randomNum(min_val, max_val)
+    guess = 0
+    
+    guess = getUserGuess(min_val, max_val)
+    
+    result = guess()
+    print(result)
