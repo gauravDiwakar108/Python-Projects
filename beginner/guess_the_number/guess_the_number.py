@@ -25,19 +25,22 @@ def guess(x, y):
         return "Too low. Guess again!"
     elif (x < y):
         return "Too High. Guess again!"
-    return "Correct Guess!!!"
+    return "\nCorrect Guess!!!"
 
 def main():
     min_val = getMinValue()
     max_val = getMaxValue()
     random_num = randomNum(min_val, max_val)
-    
     user_guess = 0
+    guess_count = 0
     
     while user_guess != random_num:
+        print()
         user_guess = getUserGuess(min_val, max_val)
         result = guess(random_num, user_guess)
+        guess_count += 1
         print(result)
+    print(f"User guessed the nubmer in {guess_count} guess.")
     
 if __name__ == "__main__":
     main()
