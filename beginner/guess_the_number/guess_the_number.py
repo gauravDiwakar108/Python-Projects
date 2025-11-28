@@ -19,8 +19,6 @@ def getUserGuess(x, y):
 
 
 def guess(x, y):
-    # while guess != random_num
-    
     if (x > y):
         return "Too low. Guess again!"
     elif (x < y):
