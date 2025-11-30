@@ -12,18 +12,12 @@ def get_max_value():
 def get_feedback():
     return input("user, if the guess is correct is high or low or correct (h/l/c) : ").strip().lower()
 
-def computerGuess(guess, min_val, max_val, feedback):
-    # print(f"Computer guess : {guess}")
+def manage_program(guess, feedback):
     if (feedback == 'h'):
-        min_val = guess + 1
-        return min_val
+        return guess - 1
     elif (feedback == 'l'):
-        max_val = guess - 1
-        return max_val
-    elif (feedback == 'c'):
-        return guess
-    else:
-        return None
+        return guess + 1
+    return guess
 
 def get_valid_input(prompt_func):
     while True:
@@ -37,20 +31,26 @@ def main():
     feedback = ''
     count = 0
     
-    while (feedback != 'c' and min_val != max_val):
-        # print(f"Choose a number b/w {min_val} : {max_val}")
+    while (feedback != 'c'):
         guess = random.randint(min_val, max_val)
         print(f"\nComputer guess : {guess}")
         feedback = get_feedback()
-        if feedback in ['h', 'l', 'c']:
-            guess = computerGuess(guess, min_val, max_val, feedback)
         count += 1
-
-    print(f"Guess times count : {count}")
-        
-        
-    
-# computerGuess(10)
+        if feedback in ['c', 'h', 'l']:
+            if feedback == 'h':
+                max_val = manage_program(guess, feedback)
+                continue
+            elif feedback == 'l':
+                min_val = manage_program(guess, feedback)
+                continue
+            result = manage_program(guess, feedback)
+            print(f"Correct guess : {result}")
+        else:
+            print("Please enter h/c/l")
+            count = count - 1
+            continue
+        print(f"Guess times count : {count}")
+        break
 
 if __name__ == "__main__":
     main()
