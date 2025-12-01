@@ -2,14 +2,14 @@ import random
 from words import words
 import string
 
-def getValidWord(words):
+def get_valid_word(words):
     word = random.choice(words) # randomly chooses a word from words list
     while ('-' in word) or (' ' in word):
         word = random.choice(words)
     return word.upper()
 
 def hangman():
-    word = getValidWord(words)
+    word = get_valid_word(words)
     word_letters = set(word) # all letters in word
     alphabet = set(string.ascii_uppercase)
     used_letters = set() # what user has guessed
